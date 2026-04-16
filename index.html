@@ -99,10 +99,11 @@
           muted
           playsinline
           preload="auto"
+          poster="assets/hero-banner-mockup.png"
           disablePictureInPicture
           controlsList="nodownload noplaybackrate noremoteplayback"
         >
-          <source src="../childvideo/boy-and-doctor.mp4" type="video/mp4" />
+          <source src="/videos/boy-and-doctor.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="hero-static" id="hero-static" aria-hidden="true">
@@ -238,12 +239,10 @@
                 loop
                 playsinline
                 preload="metadata"
+                poster="assets/service-microsurgical-vision.png"
                 aria-label="Eyelid repair surgery before and after results video"
               >
-                <source
-                  src="../video%20%20folder/Drnusratsurgery/hero-video.mp4"
-                  type="video/mp4"
-                />
+                <source src="/videos/hero-video.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="service-card-content">
@@ -867,6 +866,6 @@
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>
