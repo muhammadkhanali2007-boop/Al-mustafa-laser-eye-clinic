@@ -4,7 +4,6 @@
   var header = document.querySelector(".site-header");
   var navToggle = document.querySelector(".nav-toggle");
   var navDesktop = document.querySelector(".nav-desktop");
-  var fabBook = document.querySelector(".fab-book");
   var backToTop = document.getElementById("back-to-top");
 
   function onScroll() {
@@ -162,17 +161,6 @@
       }
     });
   });
-
-  if (fabBook) {
-    fabBook.addEventListener("click", function (e) {
-      var form = document.getElementById("contact");
-      if (form) {
-        e.preventDefault();
-        var top = form.getBoundingClientRect().top + window.scrollY - 76;
-        window.scrollTo({ top: top, behavior: "smooth" });
-      }
-    });
-  }
 
   if (backToTop) {
     backToTop.addEventListener("click", function () {

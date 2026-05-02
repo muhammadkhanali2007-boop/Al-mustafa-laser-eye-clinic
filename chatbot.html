@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Chatbot | Al-Mustafa Laser Eye Clinic</title>
+    <meta
+      name="description"
+      content="Demo assistant for Al-Mustafa Laser Eye Clinic — quick questions about services."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <div class="header-inner">
+        <a class="logo-link" href="index.html#top" aria-label="Al-Mustafa Laser Eye Clinic, home">
+          <svg class="logo-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="24" cy="24" rx="22" ry="20" fill="url(#logoGradChat)" />
+            <ellipse cx="24" cy="24" rx="22" ry="20" stroke="rgba(255,255,255,0.2)" stroke-width="1" />
+            <path
+              d="M24 14c-6 0-11 4.5-11 10s5 10 11 10 11-4.5 11-10-5-10-11-10zm0 16a6 6 0 1 1 0-12 6 6 0 0 1 0 12z"
+              fill="white"
+              fill-opacity="0.95"
+            />
+            <circle cx="24" cy="24" r="3.2" fill="#1a2d3d" />
+            <defs>
+              <linearGradient id="logoGradChat" x1="8" y1="10" x2="40" y2="38" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#2a8a9f" />
+                <stop offset="1" stop-color="#1a6b7c" />
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo-text">
+            <strong class="logo-clinic">Al-Mustafa Laser Eye Clinic</strong>
+            <span class="logo-doctor">Dr. Nusrat Ullah Khan</span>
+          </span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="index.html#top">Home</a>
+          <a href="chatbot.html" aria-current="page">Chatbot</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#about">Our Doctors</a>
+          <a href="index.html#gallery">Technology</a>
+          <a href="index.html#testimonials">Patient Info</a>
+          <a href="index.html#contact">Contact</a>
+          <a class="btn btn-ghost" href="index.html#top">Back to Home</a>
+          <a class="btn btn-orange" href="chatbot.html?book=1" data-chat-intent="booking">Book Appointment</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="chatbot-main" id="main">
+      <h1 class="chatbot-page-title">Patient care desk</h1>
+      <p class="chatbot-page-lead">
+        Ask about <strong>services</strong>, <strong>timings</strong>, <strong>location</strong>, or <strong>fees</strong>. Say <strong>book appointment</strong> to start a short intake — at the end we open WhatsApp with a prefilled message for our team (you tap send). For eye symptoms, we always guide you toward a consultation with Dr. Nusrat Ullah Khan.
+      </p>
+
+      <div class="chat-shell" aria-label="Chat conversation">
+        <div class="chat-shell__header">
+          <span class="chat-shell__title">Reception desk</span>
+          <span class="chat-shell__status">Here to help · replies are general guidance only</span>
+        </div>
+        <div class="chat-messages" id="chat-messages" tabindex="0" aria-label="Message history"></div>
+        <form class="chat-composer" id="chat-form" autocomplete="off" novalidate>
+          <button
+            type="button"
+            class="chat-icon-btn"
+            id="chat-mic"
+            aria-label="Speak your message"
+            aria-pressed="false"
+            title="Voice input — click to speak"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+            </svg>
+          </button>
+          <label for="chat-input" class="sr-only">Your message</label>
+          <input
+            id="chat-input"
+            class="chat-input"
+            type="text"
+            name="message"
+            placeholder="Type your message…"
+            maxlength="2000"
+            enterkeyhint="send"
+          />
+          <button type="submit" class="chat-send-btn" id="chat-send">Send</button>
+        </form>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        © <span id="y"></span> Al-Mustafa Laser Eye Clinic · Demo chatbot — not medical advice.
+      </p>
+      <p style="margin-top: 0.5rem">
+        <a href="index.html#top">Back to Home</a>
+      </p>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/chatbot.js"></script>
+  </body>
+</html>

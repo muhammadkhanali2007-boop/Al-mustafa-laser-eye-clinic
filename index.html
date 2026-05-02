@@ -18,6 +18,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/chatbot.css" />
     <!--
       Images: Facebook CDN URLs expire. Save photos from
       https://www.facebook.com/p/Al-Mustafa-Laser-Eye-Clinic-61572840192721/
@@ -77,12 +78,13 @@
         </button>
         <nav class="nav-desktop" aria-label="Primary">
           <a href="#top">Home</a>
+          <a href="chatbot.html">Chatbot</a>
           <a href="#services">Services</a>
           <a href="#about">Our Doctors</a>
           <a href="#gallery">Technology</a>
           <a href="#testimonials">Patient Info</a>
           <a href="#contact">Contact</a>
-          <a class="btn btn-orange" href="#contact">Book Appointment</a>
+          <a class="btn btn-orange" href="#contact" data-chat-intent="booking">Book Appointment</a>
         </nav>
       </div>
     </header>
@@ -122,7 +124,7 @@
               بینائی روشن، زندگی خوشحال: جدید سرجری اور لیزر کے ساتھ
             </p>
             <div class="hero-actions">
-              <a class="btn btn-orange" href="#contact">Book Appointment</a>
+              <a class="btn btn-orange" href="#contact" data-chat-intent="booking">Book Appointment</a>
             </div>
           </div>
           <figure class="hero-static__figure">
@@ -137,7 +139,7 @@
           </figure>
         </div>
       </div>
-      <a class="hero-video-book btn btn-orange" href="#contact" id="hero-video-book">Book Appointment</a>
+      <a class="hero-video-book btn btn-orange" href="#contact" id="hero-video-book" data-chat-intent="booking">Book Appointment</a>
     </section>
 
     <section id="mission" class="mission-banner" aria-labelledby="mission-heading">
@@ -284,7 +286,7 @@
           </article>
         </div>
         <div class="services-cta reveal">
-          <a class="btn btn-primary" href="#contact">Book Appointment</a>
+          <a class="btn btn-primary" href="#contact" data-chat-intent="booking">Book Appointment</a>
         </div>
       </div>
     </section>
@@ -837,7 +839,7 @@
         today.
       </p>
       <div class="footer-cta-actions">
-        <a class="btn btn-orange" href="#contact">Book Appointment</a>
+        <a class="btn btn-orange" href="#contact" data-chat-intent="booking">Book Appointment</a>
         <a class="btn btn-ghost" href="tel:+923335795511">Call now</a>
       </div>
     </section>
@@ -857,7 +859,7 @@
       <span class="back-to-top__text">Top</span>
     </button>
 
-    <a class="fab-book" href="#contact" aria-label="Book a consultation">
+    <a class="fab-book" href="#contact" aria-label="Book a consultation" data-chat-intent="booking">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
         <rect x="3" y="4" width="18" height="18" rx="2" />
         <path d="M16 2v4M8 2v4M3 10h18" />
@@ -870,9 +872,64 @@
       <img src="" alt="" />
     </div>
 
+    <div id="clinic-chat-overlay" class="clinic-chat-overlay" aria-hidden="true"></div>
+    <aside
+      id="clinic-chat-panel"
+      class="clinic-chat-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Reception desk chat"
+      aria-hidden="true"
+    >
+      <div class="clinic-chat-panel__header">
+        <div>
+          <span class="clinic-chat-panel__title">Reception desk</span>
+          <span class="clinic-chat-panel__subtitle">Book visits · timings · general guidance</span>
+        </div>
+        <button type="button" class="clinic-chat-panel__close" id="clinic-chat-close" aria-label="Close chat">
+          ×
+        </button>
+      </div>
+      <div class="clinic-chat-panel__body">
+        <div class="chat-shell clinic-chat-panel__shell" aria-label="Chat conversation">
+          <div class="chat-shell__header">
+            <span class="chat-shell__title">Al-Mustafa Laser Eye Clinic</span>
+            <span class="chat-shell__status">Here to help · not a substitute for an in-person exam</span>
+          </div>
+          <div class="chat-messages" id="chat-messages" tabindex="0" aria-label="Message history"></div>
+          <form class="chat-composer" id="chat-form" autocomplete="off" novalidate>
+            <button
+              type="button"
+              class="chat-icon-btn"
+              id="chat-mic"
+              aria-label="Speak your message"
+              title="Voice input"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3z" />
+                <path d="M19 10v1a7 7 0 0 1-14 0v-1M12 19v3M8 23h8" />
+              </svg>
+            </button>
+            <label for="chat-input" class="sr-only">Your message</label>
+            <input
+              id="chat-input"
+              class="chat-input"
+              type="text"
+              name="message"
+              maxlength="2000"
+              placeholder="Type a message…"
+              autocomplete="off"
+            />
+            <button type="submit" class="chat-send-btn" id="chat-send">Send</button>
+          </form>
+        </div>
+      </div>
+    </aside>
+
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
+    <script type="module" src="js/chatbot.js"></script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
