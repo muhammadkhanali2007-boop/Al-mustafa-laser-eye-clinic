@@ -91,24 +91,9 @@
 
     <div id="top"></div>
 
-    <section class="hero hero--video" id="hero" aria-label="Clinic introduction">
+    <section class="hero hero--video is-hero-banner" id="hero" aria-label="Clinic introduction">
       <h1 id="hero-heading" class="sr-only">Trusted Eye Care in Mianwali — Al-Mustafa Laser Eye Clinic</h1>
-      <div class="hero-video-shell" id="hero-video-shell">
-        <video
-          class="hero-bg-video"
-          id="hero-bg-video"
-          autoplay
-          muted
-          playsinline
-          preload="auto"
-          poster="assets/hero-banner-mockup.png"
-          disablePictureInPicture
-          controlsList="nodownload noplaybackrate noremoteplayback"
-        >
-          <source src="/videos/boy-and-doctor.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="hero-static" id="hero-static" aria-hidden="true">
+      <div class="hero-static" id="hero-static" aria-hidden="false">
         <p class="sr-only hero-static__sr">
           Static banner: Trusted Eye Care in Mianwali. From routine eye checkups to advanced laser procedures
           — expert care from Dr. Nusrat Ullah Khan and his experienced team. Urdu: بینائی روشن، زندگی خوشحال: جدید سرجری اور لیزر کے ساتھ. Book appointment controls appear on the banner artwork.
@@ -124,7 +109,8 @@
               بینائی روشن، زندگی خوشحال: جدید سرجری اور لیزر کے ساتھ
             </p>
             <div class="hero-actions">
-              <a class="btn btn-orange" href="#contact" data-chat-intent="booking">Book Appointment</a>
+              <a class="btn btn-orange hero-phone-cta" href="tel:03092580226">0309-2580226</a>
+              <a class="btn btn-orange hero-phone-cta" href="tel:03335795511">0333-5795511</a>
             </div>
           </div>
           <figure class="hero-static__figure">
@@ -133,13 +119,13 @@
               alt="Dr. Nusrat Ullah Khan in surgical attire at Al-Mustafa Laser Eye Clinic"
               width="1024"
               height="822"
-              loading="lazy"
+              loading="eager"
+              fetchpriority="high"
               decoding="async"
             />
           </figure>
         </div>
       </div>
-      <a class="hero-video-book btn btn-orange" href="#contact" id="hero-video-book" data-chat-intent="booking">Book Appointment</a>
     </section>
 
     <section id="mission" class="mission-banner" aria-labelledby="mission-heading">

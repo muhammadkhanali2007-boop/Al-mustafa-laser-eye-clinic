@@ -21,44 +21,6 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  var heroVideo = document.getElementById("hero-bg-video");
-  var heroSection = document.getElementById("hero");
-  var heroStatic = document.getElementById("hero-static");
-
-  if (heroVideo && typeof heroVideo.play === "function") {
-    heroVideo.play().catch(function () {});
-  }
-
-  function showHeroBanner() {
-    if (!heroSection || !heroStatic) return;
-    heroSection.classList.add("is-hero-banner");
-    heroStatic.setAttribute("aria-hidden", "false");
-    var img = heroStatic.querySelector(".hero-static__img");
-    if (img) {
-      img.setAttribute("fetchpriority", "high");
-    }
-  }
-
-  function resetHeroToVideo() {
-    if (!heroSection || !heroStatic) return;
-    heroSection.classList.remove("is-hero-banner");
-    heroStatic.setAttribute("aria-hidden", "true");
-    var img = heroStatic.querySelector(".hero-static__img");
-    if (img) {
-      img.setAttribute("fetchpriority", "low");
-    }
-  }
-
-  if (heroVideo && heroSection) {
-    heroVideo.addEventListener("ended", function () {
-      showHeroBanner();
-    });
-
-    heroVideo.addEventListener("play", function () {
-      resetHeroToVideo();
-    });
-  }
-
   if (navToggle && navDesktop) {
     navToggle.addEventListener("click", function () {
       var open = navDesktop.classList.toggle("is-open");

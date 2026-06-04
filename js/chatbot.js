@@ -31,6 +31,9 @@ const SHEET_SUCCESS = BOOKING_SHEET_SUCCESS;
 
 const BOOK_CTA = " Would you like me to book a consultation for you?";
 
+/** Consultation fee copy shown in chatbot FAQ, welcome, and fee-related replies. */
+const CONSULTATION_FEE_DISPLAY = "Rs. 1,000";
+
 /** Cooldown (ms) before starting another full booking after a successful sheet save — same session. */
 const BOOKING_REPEAT_COOLDOWN_MS = 3 * 60 * 1000;
 
@@ -96,7 +99,9 @@ const MSG = {
     "Charges vary depending on the condition. For exact pricing, please contact the clinic or book a consultation. A short in-person visit is the safest way to plan care.",
 
   consultationFee:
-    "The consultation fee is 500 PKR. Treatment options are discussed only after the doctor examines you in clinic." +
+    "The consultation fee is " +
+    CONSULTATION_FEE_DISPLAY +
+    ". Treatment options are discussed only after the doctor examines you in clinic." +
     BOOK_CTA,
 
   booking:
@@ -254,11 +259,11 @@ function isConsultationFeeQuery(t) {
   return (
     containsAny(t, ["consultation fee", "checkup fee", "visit fee", "opd fee", "registration fee"]) ||
     (t.includes("consultation") && containsAny(t, ["fee", "fees", "cost", "price", "how much"])) ||
-    (t.includes("500") && containsAny(t, ["fee", "consult", "check"]))
+    (containsAny(t, ["1000", "1,000", "500"]) && containsAny(t, ["fee", "consult", "check"]))
   );
 }
 
-/** Surgery / general pricing (not the fixed 500 PKR consultation fee). */
+/** Surgery / general pricing (not the fixed consultation fee). */
 function isGeneralPriceOrSurgeryCostQuery(t) {
   if (!t || isConsultationFeeQuery(t)) return false;
   if (
@@ -985,7 +990,9 @@ function initChatbot() {
   const welcome =
     "Assalam-o-Alaikum — welcome to " +
     CLINIC.name +
-    ". I'm your virtual reception desk. Ask about Dr. Nusrat Ullah Khan, services, timings, or the 500 PKR consultation fee. Say book appointment to start a short booking (saved securely, with WhatsApp as backup if needed). WhatsApp or call " +
+    ". I'm your virtual reception desk. Ask about Dr. Nusrat Ullah Khan, services, timings, or the " +
+    CONSULTATION_FEE_DISPLAY +
+    " consultation fee. Say book appointment to start a short booking (saved securely, with WhatsApp as backup if needed). WhatsApp or call " +
     CLINIC.whatsapp +
     " anytime.";
 
